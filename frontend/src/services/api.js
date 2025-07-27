@@ -12,7 +12,8 @@ const handleResponse = async (response) => {
 
 // Función genérica para hacer peticiones fetch
 export const apiRequest = async (endpoint, method = 'GET', body = null, token = null) => {
-    const url = `${API_URL}${endpoint}`;
+    // Se asegura de que la URL se construya correctamente, evitando dobles barras (//)
+    const url = `${API_URL.replace(/\/$/, '')}/${endpoint.replace(/^\//, '')}`;
     const headers = {
         'Content-Type': 'application/json',
         'accept': 'application/json',

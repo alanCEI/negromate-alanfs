@@ -44,19 +44,19 @@ export const apiRequest = async (endpoint, method = 'GET', body = null, token = 
 // Ejemplos de servicios específicos
 export const api = {
     auth: {
-        login: (credentials) => apiRequest('/auth/login', 'POST', credentials),
-        register: (userData) => apiRequest('/auth/register', 'POST', userData),
-        getProfile: (token) => apiRequest('/auth/profile', 'GET', null, token),
+        login: (credentials) => apiRequest('auth/login', 'POST', credentials),
+        register: (userData) => apiRequest('auth/register', 'POST', userData),
+        getProfile: (token) => apiRequest('auth/profile', 'GET', null, token),
     },
     products: {
-        get: (category = '') => apiRequest(`/products${category ? `?category=${category}` : ''}`),
-        getById: (id) => apiRequest(`/products/${id}`),
+        get: (category = '') => apiRequest(`products${category ? `?category=${category}` : ''}`),
+        getById: (id) => apiRequest(`products/${id}`),
     },
     content: {
-        get: (sectionName) => apiRequest(`/content/${sectionName}`),
+        get: (sectionName) => apiRequest(`content/${sectionName}`),
     },
     orders: {
-        create: (orderData, token) => apiRequest('/orders', 'POST', orderData, token),
-        getMyOrders: (token) => apiRequest('/orders/myorders', 'GET', null, token)
+        create: (orderData, token) => apiRequest('orders', 'POST', orderData, token),
+        getMyOrders: (token) => apiRequest('orders/myorders', 'GET', null, token)
     }
 };
